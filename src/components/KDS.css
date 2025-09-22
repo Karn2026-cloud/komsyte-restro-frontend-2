@@ -1,0 +1,124 @@
+/* --- Global Styles for KDS --- */
+.kds-container {
+    /* Full screen height and dark background for a console-like feel */
+    min-height: 100vh;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.kds-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ecf0f1;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.error-message, .no-orders-message {
+    color: #f1c40f;
+    background-color: rgba(241, 196, 15, 0.1);
+    border: 1px solid #f1c40f;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1em;
+    margin: 20px;
+}
+
+/* --- KOT Grid and Cards --- */
+.kitchen-order-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    align-content: flex-start;
+}
+
+.kot-card {
+    background-color: #34495e;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.kot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #e67e22;
+}
+
+.kot-header h4 {
+    margin: 0;
+    font-size: 1.4em;
+    color: #ecf0f1;
+    font-weight: 600;
+}
+
+.kot-header span {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #bdc3c7;
+}
+
+/* --- List of Items in KOT --- */
+.kot-items-list {
+    list-style: none;
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.kot-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.kot-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.item-qty {
+    font-weight: bold;
+    color: #e67e22;
+    margin-right: 15px;
+    font-size: 1.1em;
+}
+
+.item-name {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+/* --- Status-based Colors for Items --- */
+.status-sent-to-kitchen {
+    border: 1px solid #9b59b6;
+}
+
+.status-preparing {
+    border: 1px solid #f39c12;
+}
+
+.status-ready {
+    border: 1px solid #2ecc71;
+}
+
+.status-sent-to-kitchen .item-qty { color: #9b59b6; }
+.status-preparing .item-qty { color: #f39c12; }
+.status-ready .item-qty { color: #2ecc71; }

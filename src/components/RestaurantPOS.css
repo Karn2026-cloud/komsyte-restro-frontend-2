@@ -1,0 +1,279 @@
+/* * Professional & Mobile-First Design
+* This CSS uses Flexbox and Grid to ensure a perfect fit on any mobile screen.
+*/
+
+/* --- Base Variables & Global Styles --- */
+:root {
+    --primary-color: #3b82f6; /* A friendly, professional blue */
+    --secondary-color: #10b981; /* A vibrant green for success */
+    --accent-color: #ef4444; /* A clear red for warnings/removals */
+    --background-color: #f3f4f6; /* A soft, light grey for the overall background */
+    --panel-color: #ffffff; /* Clean white for content panels */
+    --text-color: #1f2937; /* Dark charcoal for high readability */
+    --border-color: #e5e7eb;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.pos-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden; /* Prevents all horizontal scrolling */
+}
+
+/* --- Panel Styles --- */
+.pos-sidebar,
+.pos-menu-panel,
+.order-details-panel {
+    padding: 1rem; /* Use rem for consistent scaling */
+    margin: 0.5rem;
+    background-color: var(--panel-color);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+}
+
+h2, h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* --- Responsive Grid for Lists --- */
+.table-list,
+.order-list,
+.menu-list {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Auto-adjusts column count */
+}
+
+/* --- Card & Interactive Styles --- */
+.table-card,
+.order-card,
+.menu-item-card {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border-color);
+}
+
+.table-card:hover,
+.order-card:hover,
+.menu-item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.table-card.active,
+.order-card.active {
+    background-color: var(--primary-color);
+    color: var(--panel-color);
+    border-color: var(--primary-color);
+    transform: scale(1.02);
+}
+
+.menu-item-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.menu-item-price {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* --- Forms & Buttons --- */
+.menu-search-input,
+.manual-item-form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+}
+
+.manual-item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.pos-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.new-order-btn,
+.kot-btn,
+.bill-btn,
+.manual-item-form button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.new-order-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.manual-item-form button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.kot-btn {
+    background-color: #facc15;
+    color: var(--text-color);
+}
+
+.bill-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.bill-btn:disabled {
+    background-color: #d1d5db;
+    cursor: not-allowed;
+}
+
+/* --- Order Details Table --- */
+.order-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.order-items-table th,
+.order-items-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.order-items-table th {
+    background-color: var(--background-color);
+    font-weight: 500;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.qty-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+}
+
+.remove-item-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.order-total {
+    border-top: 2px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.order-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* --- Status Badges --- */
+.order-item-status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px; /* A pill-shaped border-radius */
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+}
+
+.status-new { background-color: #facc15; color: var(--text-color); }
+.status-placed { background-color: #3b82f6; }
+.status-sent-to-kitchen { background-color: #10b981; }
+.status-in-progress { background-color: #f97316; }
+.status-ready { background-color: #22c55e; }
+.status-completed, .status-paid { background-color: #6b7280; }
+
+/* --- Desktop & Tablet Overrides --- */
+@media (min-width: 768px) {
+    .pos-layout {
+        flex-direction: row;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .pos-sidebar {
+        flex: 0 0 250px; /* Fixed width sidebar for tablets/desktops */
+        max-width: 25%;
+    }
+
+    .pos-main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+    
+    .order-details-panel {
+        flex: 2; /* Takes up more space */
+    }
+
+    .pos-menu-panel {
+        flex: 1; /* Takes up less space */
+    }
+
+    .manual-item-form {
+        flex-direction: row;
+    }
+    
+    .pos-actions,
+    .order-actions {
+        flex-direction: row;
+    }
+}
